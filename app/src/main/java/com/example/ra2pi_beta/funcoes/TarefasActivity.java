@@ -15,7 +15,7 @@ import com.example.ra2pi_beta.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class activity_tarefas extends AppCompatActivity {
+public class TarefasActivity extends AppCompatActivity {
 
     boolean estadoBoton;
     Button boton;

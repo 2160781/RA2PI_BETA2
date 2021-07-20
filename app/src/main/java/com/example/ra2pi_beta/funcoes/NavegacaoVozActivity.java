@@ -6,7 +6,6 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.view.KeyEvent;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,13 +15,13 @@ import com.example.ra2pi_beta.R;
 import java.text.Normalizer;
 import java.util.ArrayList;
 
-public class activity_NavegacaoVoz extends AppCompatActivity implements TextToSpeech.OnInitListener {
+public class NavegacaoVozActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 2;
     private static final int RECONHECEDOR_VOZ = 7;
     private TextView ouve;
     private TextView resposta;
-    private ArrayList <Resposta> respostas;
+    private ArrayList <RespostaActivity> respostaActivities;
     private TextToSpeech ler;
     private Object TextView;
 
@@ -63,17 +62,17 @@ public class activity_NavegacaoVoz extends AppCompatActivity implements TextToSp
         String normalizar = Normalizer.normalize(ouvir, Normalizer.Form.NFD);
         String sint = normalizar.replaceAll("[^\\p{ASCII}]", "");
 
-        for (int i = 0; i < respostas.size(); i++) {
-            int resultado = sint.toLowerCase().indexOf(respostas.get(i).getFala());
+        for (int i = 0; i < respostaActivities.size(); i++) {
+            int resultado = sint.toLowerCase().indexOf(respostaActivities.get(i).getFala());
             if (resultado != -1) {
-                responder(respostas.get(i));
+                responder(respostaActivities.get(i));
                 return;
             }
         }
     }
 
-    private void responder (Resposta resposta) {
-        startActivity( resposta.getIntent() );
+    private void responder (RespostaActivity respostaActivity) {
+        startActivity( respostaActivity.getIntent() );
     }
 
 
@@ -81,48 +80,48 @@ public class activity_NavegacaoVoz extends AppCompatActivity implements TextToSp
 
         ouve = (TextView) findViewById(R.id.textView);
         resposta = (TextView) findViewById(R.id.tvRespuesta);
-        respostas = provarDados();
+        respostaActivities = provarDados();
         ler = new TextToSpeech(this, this);
     }
 
-    private ArrayList <Resposta> provarDados () {
-        ArrayList <Resposta> respostas = new ArrayList <>();
+    private ArrayList <RespostaActivity> provarDados () {
+        ArrayList <RespostaActivity> respostaActivities = new ArrayList <>();
 
         //Qr code Planos
-        respostas.add(new Resposta("scan", "  ",
+        respostaActivities.add(new RespostaActivity("scan", "  ",
                 new Intent(this,
                 PlanoQRCodeActivity.class)));
-        respostas.add(new Resposta("qr code", "  ",
+        respostaActivities.add(new RespostaActivity("qr code", "  ",
                 new Intent(this,
                 PlanoQRCodeActivity.class)));
-        respostas.add(new Resposta("code", "  ",
+        respostaActivities.add(new RespostaActivity("code", "  ",
                 new Intent(this,
                         PlanoQRCodeActivity.class)));
-        respostas.add(new Resposta("qr", "  ",
+        respostaActivities.add(new RespostaActivity("qr", "  ",
                 new Intent(this,
                         PlanoQRCodeActivity.class)));
-        respostas.add(new Resposta("scaner", "  ",
+        respostaActivities.add(new RespostaActivity("scaner", "  ",
                 new Intent(this,
                         PlanoQRCodeActivity.class)));
 
         //Lista dos Planos
 
-        respostas.add(new Resposta("planos", "  ",
+        respostaActivities.add(new RespostaActivity("planos", "  ",
                 new Intent(this,
-                        activity_ListaPlanos.class)));
-        respostas.add(new Resposta("lista planos", "  ",
+                        ListaPlanosActivity.class)));
+        respostaActivities.add(new RespostaActivity("lista planos", "  ",
                 new Intent(this,
-                        activity_ListaPlanos.class)));
-        respostas.add(new Resposta("tarefas" , "  ",
+                        ListaPlanosActivity.class)));
+        respostaActivities.add(new RespostaActivity("tarefas" , "  ",
                 new Intent(this,
-                        activity_ListaPlanos.class)));
+                        ListaPlanosActivity.class)));
 
         //Inicio
-        respostas.add( new Resposta( "inicio", " ",
+        respostaActivities.add( new RespostaActivity( "inicio", " ",
                 new Intent(this,
                 MainActivity.class)));
 
-        return respostas;
+        return respostaActivities;
     }
 
     @Override
