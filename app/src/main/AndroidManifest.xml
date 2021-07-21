@@ -9,13 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RA2PI_BETA">
-        <activity android:name=".administradores.MainAdministradoresActivity"></activity>
-        <activity android:name=".funcoes.activity_ListaPlanos" />
-        <activity android:name=".funcoes.PlanoQRCodeActivity" />
-        <activity android:name=".funcoes.LoginQRCodeActivity" />
-        <activity android:name=".funcoes.activity_NavegacaoVoz" />
+        <activity android:name=".administradores.CreateUserActivity"></activity>
+        <activity android:name=".administradores.ViewListTarefasPlanoUtilizadorActivity" />
+        <activity android:name=".administradores.ViewListPlanosUtilizadorActivity" />
+        <activity android:name=".administradores.MainAdministradoresActivity" />
+        <activity android:name=".utilizadores.ListaPlanosActivity" />
+        <activity android:name=".utilizadores.PlanoQRCodeActivity" />
+        <activity android:name=".utilizadores.LoginQRCodeActivity" />
+        <activity android:name=".utilizadores.NavegacaoVozActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".funcoes.activity_tarefas" />
+        <activity android:name=".utilizadores.TarefasActivity" />
         <activity android:name=".PlayActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

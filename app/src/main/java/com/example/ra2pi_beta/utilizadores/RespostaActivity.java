@@ -1,13 +1,13 @@
-package com.example.ra2pi_beta.funcoes;
+package com.example.ra2pi_beta.utilizadores;
 
 import android.content.Intent;
 
-public class Resposta {
+public class RespostaActivity {
     private String fala;
     private String resposta;
     private Intent intent;
 
-    public Resposta(String fala, String resposta, Intent intent ) {
+    public RespostaActivity(String fala, String resposta, Intent intent ) {
         this.fala = fala;
         this.resposta = resposta;
         this.intent = intent;

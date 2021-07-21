@@ -1,9 +1,8 @@
-package com.example.ra2pi_beta.funcoes;
+package com.example.ra2pi_beta.utilizadores;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -43,7 +42,7 @@ public class PlanoQRCodeActivity extends AppCompatActivity {
 
             if (plano.equals(dados)) {
                 Intent Plano = new Intent(this,
-                        activity_tarefas.class);
+                        TarefasActivity.class);
                 Plano.putExtra("NumeroPlano", i);
                 startActivity(Plano);
 

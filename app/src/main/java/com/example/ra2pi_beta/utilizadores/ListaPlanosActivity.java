@@ -1,4 +1,4 @@
-package com.example.ra2pi_beta.funcoes;
+package com.example.ra2pi_beta.utilizadores;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ import com.example.ra2pi_beta.MainActivity;
 import com.example.ra2pi_beta.PlayActivity;
 import com.example.ra2pi_beta.R;
 
-public class activity_ListaPlanos extends AppCompatActivity {
+public class ListaPlanosActivity extends AppCompatActivity {
 
     ListView listView;
 
@@ -27,7 +27,7 @@ public class activity_ListaPlanos extends AppCompatActivity {
 
     public boolean listviewPlanos(){
 
-        listView = findViewById(R.id.listview);
+        listView = findViewById(R.id.listview_usersList);
 
         int numP = PlayActivity.Main.dadosApp_.getNumeroPlanos();
 
@@ -56,7 +56,7 @@ public class activity_ListaPlanos extends AppCompatActivity {
                 for(int p = 0; p < PlayActivity.Main.dadosApp_.getNumeroPlanos(); p++) {
                     if(p == position){
                         Intent Tarefa = new Intent(view.getContext(),
-                                activity_tarefas.class);
+                                TarefasActivity.class);
                         Tarefa.putExtra("NumeroPlano",position);
                         startActivity(Tarefa);
                     }else{

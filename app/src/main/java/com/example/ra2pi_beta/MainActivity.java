@@ -9,11 +9,12 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ra2pi_beta.funcoes.PlanoQRCodeActivity;
-import com.example.ra2pi_beta.funcoes.activity_NavegacaoVoz;
-import com.example.ra2pi_beta.funcoes.activity_ListaPlanos;
+import com.example.ra2pi_beta.utilizadores.PlanoQRCodeActivity;
+import com.example.ra2pi_beta.utilizadores.NavegacaoVozActivity;
+import com.example.ra2pi_beta.utilizadores.ListaPlanosActivity;
 
 public class MainActivity extends AppCompatActivity {
+
 
     ListView listViewInicial;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         listviewInicial();
     }
@@ -56,12 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (position == 1) {
                     Intent planos = new Intent(view.getContext(),
-                            activity_ListaPlanos.class);
+                            ListaPlanosActivity.class);
                     startActivity(planos);
                 }
                 if (position == 2) {
                     Intent micro = new Intent(view.getContext(),
-                            activity_NavegacaoVoz.class);
+                            NavegacaoVozActivity.class);
                     startActivity(micro);
                 }
             }

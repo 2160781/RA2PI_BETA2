@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ra2pi_beta.funcoes.LoginQRCodeActivity;
+import com.example.ra2pi_beta.utilizadores.LoginQRCodeActivity;
 import com.example.ra2pi_beta.informacao.DadosApp;
 
 
