@@ -13,25 +13,25 @@ import com.example.ra2pi_beta.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class CreateUserActivity extends AppCompatActivity {
+public class CreatePlanoActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
-    Button btnCreateUser;
+    Button btnCreatePlano;
     Button btnCancel;
-    EditText editTextUsername;
+    EditText editTextPlanoname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_user);
+        setContentView(R.layout.activity_create_plano);
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        editTextUsername = findViewById(R.id.editTextPlano);
-        btnCreateUser = findViewById(R.id.btn_createPlano);
+        editTextPlanoname = findViewById(R.id.editTextPlano);
+        btnCreatePlano = findViewById(R.id.btn_createPlano);
         btnCancel = findViewById(R.id.btn_cancel);
 
-        btnCreateUser.setOnClickListener(new View.OnClickListener() {
+        btnCreatePlano.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                createUser();
+                createPlano();
             }
         });
 
@@ -43,20 +43,20 @@ public class CreateUserActivity extends AppCompatActivity {
 
     }
 
-    public void createUser(){
-        String username = editTextUsername.getText().toString();
+    public void createPlano(){
+        String userplano = editTextPlanoname.getText().toString();
         DatabaseReference reference;
-        if (username!=null){
-            if(!userExist(username)){
+        if (userplano!=null){
+            if(!planoExist(userplano)){
                 reference = mDatabase;
-                reference.child(String.valueOf(Integer.parseInt(username))).child("tipo").setValue("func");
+                reference.child(String.valueOf(Integer.parseInt(userplano)));
 
-                Toast.makeText(this, "Utilizador com o nome "+username+ " criado!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Plano com o nome "+userplano+ " criado!", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(),MainAdministradoresActivity.class);
+                Intent intent = new Intent(getApplicationContext(),ViewListPlanosUtilizadorActivity.class);
                 startActivity(intent);
             }else {
-                Toast.makeText(this, "Utilizador já existe", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Plano já existe", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -64,18 +64,21 @@ public class CreateUserActivity extends AppCompatActivity {
     }
 
     public void cancelAndBack(){
-        Intent intent = new Intent(getApplicationContext(),MainAdministradoresActivity.class);
+        Intent intent = new Intent(getApplicationContext(),ViewListPlanosUtilizadorActivity.class);
         startActivity(intent);
 
     }
 
-    public boolean userExist(String username){
+    public boolean planoExist(String planos){
         if(MainAdministradoresActivity.MainAdministradores.usernames.length>0){
             String[] listUsernames = MainAdministradoresActivity.MainAdministradores.usernames;
+            String[] listPlanos = MainAdministradoresActivity.MainAdministradores.planos;
 
             for (int i = 0; i<listUsernames.length;i++){
-                if(listUsernames[i].equals(username)){
-                    return true;
+                for(int p = 0; p<listPlanos.length;p++){
+                    if(listPlanos[i].equals(planos)){
+                        return true;
+                    }
                 }
             }
             return false;

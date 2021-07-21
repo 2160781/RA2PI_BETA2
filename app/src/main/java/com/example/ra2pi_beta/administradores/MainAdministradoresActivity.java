@@ -32,6 +32,8 @@ public class MainAdministradoresActivity extends AppCompatActivity {
     public static class MainAdministradores {
 
         public  static String[] usernames;
+        public  static String[] planos;
+        public static String[] tarefas;
 
     }
 
@@ -83,8 +85,6 @@ public class MainAdministradoresActivity extends AppCompatActivity {
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
             }
         });
-
-
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

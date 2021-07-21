@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RA2PI_BETA">
-        <activity android:name=".administradores.CreateUserActivity"></activity>
+        <activity android:name=".administradores.CreatePlanoActivity"></activity>
+        <activity android:name=".administradores.CreateUserActivity" />
         <activity android:name=".administradores.ViewListTarefasPlanoUtilizadorActivity" />
         <activity android:name=".administradores.ViewListPlanosUtilizadorActivity" />
         <activity android:name=".administradores.MainAdministradoresActivity" />

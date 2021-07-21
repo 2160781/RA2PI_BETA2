@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".administradores.CreateUserActivity">
+    tools:context=".administradores.CreatePlanoActivity">
 
     <androidx.slidingpanelayout.widget.SlidingPaneLayout
         android:id="@+id/listviewUsersTarefasPlanos"
@@ -27,13 +27,13 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Username" />
+                android:text="Plano" />
 
             <Button
                 android:id="@+id/btn_createPlano"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Registar Utilizador" />
+                android:text="Registar Plano" />
 
             <Button
                 android:id="@+id/btn_cancel"
@@ -42,4 +42,5 @@
                 android:text="Cancelar" />
         </LinearLayout>
     </androidx.slidingpanelayout.widget.SlidingPaneLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
